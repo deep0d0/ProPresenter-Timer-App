@@ -1,0 +1,5 @@
+/Users/deep0d0/Downloads/CleanProPresenterApp_FINAL_RELEASE_CLEAN/CleanProPresenterApp/bin/Release/net6.0/osx-x64/publish/CleanProPresenterApp.pdb
+/Users/deep0d0/Downloads/CleanProPresenterApp_FINAL_RELEASE_CLEAN/CleanProPresenterApp/bin/Release/net6.0/osx-x64/publish/libAvaloniaNative.dylib
+/Users/deep0d0/Downloads/CleanProPresenterApp_FINAL_RELEASE_CLEAN/CleanProPresenterApp/bin/Release/net6.0/osx-x64/publish/libHarfBuzzSharp.dylib
+/Users/deep0d0/Downloads/CleanProPresenterApp_FINAL_RELEASE_CLEAN/CleanProPresenterApp/bin/Release/net6.0/osx-x64/publish/libSkiaSharp.dylib
+/Users/deep0d0/Downloads/CleanProPresenterApp_FINAL_RELEASE_CLEAN/CleanProPresenterApp/bin/Release/net6.0/osx-x64/publish/CleanProPresenterApp

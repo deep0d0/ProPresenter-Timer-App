@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="CleanProPresenterApp.SettingsWindow"
+        Width="300" Height="200"
+        Title="Settings"
+        WindowStartupLocation="CenterOwner">
+  <StackPanel Margin="20" Spacing="10">
+    <TextBlock Text="ProPresenter IP:"/>
+    <TextBox x:Name="IpInput" />
+
+    <TextBlock Text="Port:"/>
+    <TextBox x:Name="PortInput" />
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+      <Button Content="Cancel" Click="OnCancel" />
+      <Button Content="Save" Click="OnSave" />
+    </StackPanel>
+  </StackPanel>
+</Window>
