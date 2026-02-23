@@ -1,0 +1,13 @@
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\bin\x64\Release\ProPresenterTimerApp.exe.config
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\bin\x64\Release\ProPresenterTimerApp.exe
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\bin\x64\Release\ProPresenterTimerApp.pdb
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\bin\x64\Release\Newtonsoft.Json.dll
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\obj\x64\Release\ProPresenterTimer.csproj.AssemblyReference.cache
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\obj\x64\Release\ProPresenterTimer.csproj.SuggestedBindingRedirects.cache
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\obj\x64\Release\WindowsFormsApp1.Form1.resources
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\obj\x64\Release\ProPresenterTimerApp.Properties.Resources.resources
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\obj\x64\Release\ProPresenterTimer.csproj.GenerateResource.cache
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\obj\x64\Release\ProPresenterTimer.csproj.CoreCompileInputs.cache
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\obj\x64\Release\ProPresenterTimer.csproj.CopyComplete
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\obj\x64\Release\ProPresenterTimerApp.exe
+\\DEEP0D0SERVER\storage-kirtandesai\Personal-03212025\BAPS\ProPresenter-Timer-App-main\obj\x64\Release\ProPresenterTimerApp.pdb

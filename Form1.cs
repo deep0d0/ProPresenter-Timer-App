@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using ProPresenterTimerApp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,9 +46,28 @@ namespace WindowsFormsApp1
             this.label3.TextAlign = ContentAlignment.MiddleCenter;
             this.label4.TextAlign = ContentAlignment.MiddleCenter;
 
-            this.label1.Text = GetVideoCountDown();
-            this.label2.Text = GetAudioTimeRemains();
+            this.label1.Text = GetVideoCountDownCenterScreen();
+            this.label2.Text = GetVideoCountDownSideScreen();
             this.timer1.Enabled = true;
+
+            //< !--ProPresenter / Resolume-- >
+            //< add key = "MainScreenUses" value = "Resolume" />
+            MainScreenUses = ConfigurationManager.AppSettings["MainScreenUses"];
+
+            if (MainScreenUses != null && MainScreenUses == "ProPresenter") 
+                MainScreenURL = $"{ConfigurationManager.AppSettings["MainScreenIPAddress"]}/v1/timer/video_countdown";
+            else if (MainScreenUses != null && MainScreenUses == "Resolume")
+                MainScreenURL = $"{ConfigurationManager.AppSettings["MainScreenIPAddress"]}/api/v1/composition/clips/selected";
+
+            //< !--ProPresenter / Resolume-- >
+            //< add key = "MainScreenUses" value = "Resolume" />
+            SideScreenUses = ConfigurationManager.AppSettings["SideScreenUses"];
+
+            if (SideScreenUses != null && SideScreenUses == "ProPresenter")
+                SideScreenURL = $"{ConfigurationManager.AppSettings["SideScreenIPAddress"]}/v1/timer/video_countdown";
+            else if (SideScreenUses != null && SideScreenUses == "Resolume")
+                SideScreenURL = $"{ConfigurationManager.AppSettings["SideScreenIPAddress"]}/api/v1/composition/clips/selected";
+            
         }
 
         private string GetAudioTimeRemains()
@@ -58,19 +79,79 @@ namespace WindowsFormsApp1
             return timeRemainsSpan.ToString(@"hh\:mm\:ss");
         }
 
-        private string GetVideoCountDown()
+        private string GetVideoCountDownCenterScreen()
         {
             string CountDown = "00:00:00";
-            string uri = $"{ConfigurationManager.AppSettings["ProPresenterIPAddress"]}/v1/timer/video_countdown";
-
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(uri);
-            req.Method = "GET";
-            HttpWebResponse response = (HttpWebResponse)req.GetResponse();
-            if (response.StatusCode == HttpStatusCode.OK)
+            string timeOut = $"{ConfigurationManager.AppSettings["TimeOut"]}";
+            try
             {
-                StreamReader sr = new StreamReader(response.GetResponseStream());
-                string result = sr.ReadToEnd();
-                CountDown = JsonConvert.DeserializeObject<string>(result);
+                if(MainScreenURL == null) 
+                {
+                    return CountDown;
+                }
+                
+                HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(MainScreenURL);
+                req.Timeout = int.Parse(timeOut);
+                req.Method = "GET";
+                HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    StreamReader sr = new StreamReader(response.GetResponseStream());
+                    string result = sr.ReadToEnd();
+                    if(MainScreenUses != null && MainScreenUses == "ProPresenter")
+                        CountDown = JsonConvert.DeserializeObject<string>(result);
+                    else if (MainScreenUses != null && MainScreenUses == "Resolume")
+                    { 
+                        var output = JsonConvert.DeserializeObject<Clip>(result);
+                        double totalAudioTime = output.transport.position.max; //Total Time in MilliSeconds
+                        double currentAudioTime = output.transport.position.value; //Current Time in MilliSeconds
+                        double timeRemains = totalAudioTime - currentAudioTime;
+                        TimeSpan timeRemainsSpan = TimeSpan.FromMilliseconds(timeRemains);
+                        CountDown = timeRemainsSpan.ToString(@"hh\:mm\:ss");
+                    }
+                }
+            }
+            catch (Exception) 
+            {
+            }
+
+            return CountDown;
+        }
+
+        private string GetVideoCountDownSideScreen()
+        {
+            string CountDown = "00:00:00";
+            string timeOut = $"{ConfigurationManager.AppSettings["TimeOut"]}";
+            try
+            {
+                if (SideScreenURL == null)
+                {
+                    return CountDown;
+                }
+
+                HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(SideScreenURL);
+                req.Timeout = int.Parse(timeOut);
+                req.Method = "GET";
+                HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    StreamReader sr = new StreamReader(response.GetResponseStream());
+                    string result = sr.ReadToEnd();
+                    if (SideScreenUses != null && SideScreenUses == "ProPresenter")
+                        CountDown = JsonConvert.DeserializeObject<string>(result);
+                    else if (SideScreenUses != null && SideScreenUses == "Resolume")
+                    {
+                        var output = JsonConvert.DeserializeObject<Clip>(result);
+                        double totalAudioTime = output.transport.position.max; //Total Time in MilliSeconds
+                        double currentAudioTime = output.transport.position.value; //Current Time in MilliSeconds
+                        double timeRemains = totalAudioTime - currentAudioTime;
+                        TimeSpan timeRemainsSpan = TimeSpan.FromMilliseconds(timeRemains);
+                        CountDown = timeRemainsSpan.ToString(@"hh\:mm\:ss");
+                    }
+                }
+            }
+            catch (Exception)
+            {
             }
 
             return CountDown;
@@ -107,8 +188,8 @@ namespace WindowsFormsApp1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.label1.Text = GetVideoCountDown();
-            this.label2.Text = GetAudioTimeRemains();
+            this.label1.Text = GetVideoCountDownCenterScreen();
+            this.label2.Text = GetVideoCountDownSideScreen();
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -1,0 +1,12 @@
+D:\Personal\BAPS\ProPresenter-Timer-App-main\bin\Debug\ProPresenterTimerApp.exe.config
+D:\Personal\BAPS\ProPresenter-Timer-App-main\bin\Debug\ProPresenterTimerApp.exe
+D:\Personal\BAPS\ProPresenter-Timer-App-main\bin\Debug\ProPresenterTimerApp.pdb
+D:\Personal\BAPS\ProPresenter-Timer-App-main\bin\Debug\Newtonsoft.Json.dll
+D:\Personal\BAPS\ProPresenter-Timer-App-main\obj\Debug\ProPresenterTimer.csproj.AssemblyReference.cache
+D:\Personal\BAPS\ProPresenter-Timer-App-main\obj\Debug\WindowsFormsApp1.Form1.resources
+D:\Personal\BAPS\ProPresenter-Timer-App-main\obj\Debug\ProPresenterTimerApp.Properties.Resources.resources
+D:\Personal\BAPS\ProPresenter-Timer-App-main\obj\Debug\ProPresenterTimer.csproj.GenerateResource.cache
+D:\Personal\BAPS\ProPresenter-Timer-App-main\obj\Debug\ProPresenterTimer.csproj.CoreCompileInputs.cache
+D:\Personal\BAPS\ProPresenter-Timer-App-main\obj\Debug\ProPrese.06EABB66.Up2Date
+D:\Personal\BAPS\ProPresenter-Timer-App-main\obj\Debug\ProPresenterTimerApp.exe
+D:\Personal\BAPS\ProPresenter-Timer-App-main\obj\Debug\ProPresenterTimerApp.pdb

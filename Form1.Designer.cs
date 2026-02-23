@@ -1,4 +1,6 @@
 ﻿
+using System.Configuration;
+
 namespace WindowsFormsApp1
 {
     partial class Form1
@@ -70,7 +72,7 @@ namespace WindowsFormsApp1
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(1196, 122);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Video Time Remaining...";
+            this.label3.Text = $"{ConfigurationManager.AppSettings["MainScreenText"]}";
             // 
             // label4
             // 
@@ -80,7 +82,7 @@ namespace WindowsFormsApp1
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(579, 122);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Audio Time Remaining...";
+            this.label4.Text = $"{ConfigurationManager.AppSettings["SideScreenText"]}";
             // 
             // Form1
             // 
@@ -108,6 +110,12 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+
+        private string MainScreenURL;
+        private string SideScreenURL;
+
+        private string MainScreenUses;
+        private string SideScreenUses;
     }
 }
 
